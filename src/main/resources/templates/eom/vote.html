@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head th:include="fragments/style :: style (pageTitle='BBY Gastonia Props')" />
+
+ <body>
+ 	<div th:replace="fragments/logo :: logo" ></div>
+
+  
+ 	<div class="row">
+	    <div th:each="eom:${employee}">
+	        <div class="col-md-4">
+	        <div class="radio">
+	        <form action="#" th:action="@{/vote}" th:object="${eom.voteAmount}" method="post">
+		  		<table>
+		  		<tr>
+		    		<td><input type="radio" name="Employee List" id="vote" th:text ="${eom.firstName + ' ' + eom.lastName}" value="${eom.voteAmount}"></td>
+		   		 </tr>
+		   		 <tr>
+		   		 <td><button type="submit">Submit Vote</button></td>
+		   		 </tr>
+		  		</table>
+		  	</form>
+			</div>
+	            
+	        </div>
+	        
+	    </div>
+	</div>
+	<div align="center">
+ 		<button type="submit">Submit Vote</button>
+ 	</div>
+  </body>
+</html>
